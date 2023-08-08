@@ -1,0 +1,18 @@
+.header {
+  height: 295px;
+  background: linear-gradient(134deg, #087990 0%, #055160 100%);
+}
+h1 {
+  font-size: 72px;
+  font-weight: 700;
+  text-align: center;
+  transform: translateY(68px);
+  color: #cff4fc;
+}
+.title {
+  font-size: 21px;
+  font-weight: 400;
+  text-align: center;
+  transform: translateY(72px);
+  color: #cff4fc;
+}

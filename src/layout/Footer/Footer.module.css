@@ -1,0 +1,14 @@
+.line {
+  width: 986px;
+  height: 1px;
+  margin: 0 auto;
+  background: #ced4da;
+  margin-top: 50px;
+}
+.text {
+  text-align: center;
+  color: #6c757d;
+  font-size: 16px;
+  margin-top: 13px;
+  margin-bottom: 17px;
+}
