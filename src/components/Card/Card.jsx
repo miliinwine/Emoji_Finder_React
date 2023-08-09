@@ -1,7 +1,6 @@
 import "./Card.module.css";
 
-export const Card = ({el}) => {
-  const { title, symbol, keywords } = el;
+export const Card = ({title, symbol, keywords}) => {
   return (
     <div className="card">
           <p className="card_symbol">{symbol}</p>

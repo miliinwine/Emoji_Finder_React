@@ -21,14 +21,24 @@ function App() {
   // Загрузка данных
   useEffect(() => {
     setLoading(true);
+    const controller = new AbortController();
     fetch(
-      `http://api.codeoverdose.space/api/emoji/v1/find/?query=${inputValue}`
+      `http://api.codeoverdose.space/api/emoji/v1/find/?query=${inputValue}`,
+      { signal: controller.signal }
     )
       .then((res) => res.json())
       .then((data) => setData(data))
       .catch((error) => console.error(error))
-      .finally(()=> setLoading(false))
+      .finally(() => setLoading(false));
+    return () => {
+        controller.abort();
+      }
   }, [inputValue]);
+
+ function newKeywords(string) {
+   const uniq = string.split(" ");
+   return new Set(uniq);
+ }
   return (
     <>
       <Header titleText="Emoji Finder" paragraphText="Find emoji by keywords" />
@@ -42,7 +52,7 @@ function App() {
               el.title.toLowerCase().includes(inputValue)
           )
           .map((el, i) => (
-            <Card key={i} el={el} />
+            <Card key={i} title={el.title} symbol={el.symbol} keywords={[...newKeywords(el.keywords)].join(" ")} />
           ))}
       </Conteiner>
       <Footer footerText="2022 © Made with love by me" />
